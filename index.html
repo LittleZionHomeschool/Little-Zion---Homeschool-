@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#6757E8">
+<title>Little Zion Homeschool</title>
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{--p:#6757e8;--pink:#ff77ae;--yellow:#ffd85c;--mint:#55d5b5;--blue:#54a9ff;--ink:#26324a;--bg:#f7f8ff}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+button,input{font:inherit}button{border:0;cursor:pointer}.wrap{max-width:1100px;margin:auto;min-height:100vh}
+header{height:72px;padding:12px 20px;background:#fff;display:flex;align-items:center;justify-content:space-between;box-shadow:0 3px 18px #2221;position:sticky;top:0;z-index:5}
+.brand{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:900}.logo{width:44px;height:44px;border-radius:15px;background:linear-gradient(135deg,var(--p),var(--pink));display:grid;place-items:center;color:#fff;font-size:25px}
+main{padding:25px 18px 50px}.hero{background:linear-gradient(135deg,var(--p),#8d80ff);color:#fff;padding:30px;border-radius:28px}.hero h1{font-size:38px;margin:0 0 6px}.hero p{margin:0;font-size:18px;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:15px;margin-top:18px}.tile,.card{background:#fff;border-radius:23px;padding:20px;box-shadow:0 8px 25px #25305a14}.tile{text-align:left;min-height:150px}.tile b{font-size:19px}.emoji{font-size:43px}.muted{color:#737b91}.pill{display:inline-block;background:#eef0ff;color:var(--p);padding:7px 12px;border-radius:99px;font-weight:800}.screen{display:none}.screen.active{display:block}.back{margin-bottom:15px;background:#fff;padding:10px 14px;border-radius:13px;color:var(--p);font-weight:800}.center{text-align:center}.big{font-size:82px;margin:12px}.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px}.choice{padding:20px;border-radius:18px;background:#f0f2ff;font-weight:900;font-size:25px}.correct{background:#d7f7ec!important}.wrong{background:#ffe0e8!important}.primary{background:var(--p);color:#fff;padding:13px 18px;border-radius:14px;font-weight:900}.top{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.notice{padding:14px;border-radius:16px;background:#fff7d7}.progress{height:12px;background:#eceef7;border-radius:20px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--mint),var(--blue))}.parent-lock{max-width:440px;margin:30px auto}.parent-lock input{width:100%;padding:14px;border:2px solid #e3e5f1;border-radius:14px;margin:8px 0}.lesson{padding:18px;border:2px solid #eef0f7;border-radius:18px;margin:10px 0}.lesson h3{margin:0 0 5px}.price{font-size:35px;font-weight:950}.footer{padding:20px;text-align:center;color:#747b8f;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="brand"><div class="logo">🌟</div>Little Zion Homeschool</div><button class="primary" onclick="parentLogin()">Parent Area</button></header>
+
+<main>
+<section id="landing" class="screen active">
+<div class="hero"><h1>Little Zion 🌈</h1><p>A playful homeschool learning world for children ages 3–6, made for learning at home on phones, tablets and laptops.</p><br><button class="primary" onclick="show('signup')">Start Little Zion</button></div>
+<div class="grid">
+<div class="card"><div class="emoji">🔤</div><h2>Language & Phonics</h2><p class="muted">Letters, sounds, vocabulary and early reading.</p></div>
+<div class="card"><div class="emoji">🔢</div><h2>Early Maths</h2><p class="muted">Counting, numbers, patterns and simple problems.</p></div>
+<div class="card"><div class="emoji">✏️</div><h2>Pre-Writing</h2><p class="muted">Tracing lines, shapes, letters and numbers.</p></div>
+<div class="card"><div class="emoji">📚</div><h2>Story Time</h2><p class="muted">Short stories with questions and lessons.</p></div>
+<div class="card"><div class="emoji">🧩</div><h2>Thinking Skills</h2><p class="muted">Matching, sorting, memory and puzzles.</p></div>
+<div class="card"><div class="emoji">🏆</div><h2>Rewards</h2><p class="muted">Stars and achievements to motivate little learners.</p></div>
+</div>
+<div class="card" style="margin-top:18px"><h2>🌟 Monthly learning membership</h2><p>Parents subscribe monthly. An active subscription unlocks the learning programme; the child stays in child mode.</p><div class="price">R99 / month</div><p class="muted">Prototype price — change before launch.</p></div>
+</section>
+
+<section id="signup" class="screen">
+<button class="back" onclick="show('landing')">← Back</button>
+<div class="card parent-lock"><h2>👩‍👧 Parent Registration</h2><p>Create the parent account first.</p><input id="email" type="email" placeholder="Parent email"><input id="pw" type="password" placeholder="Create password"><input id="child" placeholder="Child first name"><select id="age" style="width:100%;padding:14px;border:2px solid #e3e5f1;border-radius:14px"><option value="">Child age</option><option>3</option><option>4</option><option>5</option><option>6</option></select><button class="primary" style="width:100%;margin-top:12px" onclick="createAccount()">Continue to payment</button><p class="muted">This prototype does not process real payments yet.</p></div>
+</section>
+
+<section id="payment" class="screen">
+<button class="back" onclick="show('signup')">← Back</button>
+<div class="card parent-lock center"><span class="pill">Parent checkout</span><h2>Unlock Little Zion</h2><p>Monthly homeschool membership</p><div class="price">R99 / month</div><p>In the production version this button will connect to a secure payment/subscription provider.</p><button class="primary" style="width:100%" onclick="demoPay()">Simulate successful payment</button><p class="muted">Demo only — no money is charged.</p></div>
+</section>
+
+<section id="childHome" class="screen">
+<div class="hero"><h1>Hi, <span id="childName">Learner</span>! 👋</h1><p>What shall we learn today?</p></div>
+<div class="grid">
+<button class="tile" onclick="show('abc')"><div class="emoji">🔤</div><b>ABC & Phonics</b><p class="muted">Letters and sounds</p></button>
+<button class="tile" onclick="show('math')"><div class="emoji">🔢</div><b>Maths</b><p class="muted">Count and choose</p></button>
+<button class="tile" onclick="show('writing')"><div class="emoji">✏️</div><b>Writing</b><p class="muted">Trace and practise</p></button>
+<button class="tile" onclick="show('story')"><div class="emoji">📚</div><b>Story Time</b><p class="muted">Listen and learn</p></button>
+<button class="tile" onclick="show('games')"><div class="emoji">🧩</div><b>Brain Games</b><p class="muted">Play and think</p></button>
+<button class="tile" onclick="show('rewards')"><div class="emoji">🏆</div><b>My Rewards</b><p class="muted">See your stars</p></button>
+</div>
+<div class="card"><b>Today's progress</b><div class="progress" style="margin-top:10px"><div id="bar" class="bar"></div></div><p id="progressText">0 activities completed</p></div>
+</section>
+
+<section id="abc" class="screen"><button class="back" onclick="show('childHome')">← My School</button><div class="card center"><span class="pill">ABC & Phonics</span><div id="letter" class="big">A</div><h2>Which picture starts with A?</h2><div id="abcChoices" class="choices"></div><button class="primary" style="margin-top:15px" onclick="speak()">🔊 Hear the letter</button></div></section>
+
+<section id="math" class="screen"><button class="back" onclick="show('childHome')">← My School</button><div class="card center"><span class="pill">Maths</span><div id="apples" class="big">🍎🍎🍎</div><h2>How many apples?</h2><div id="mathChoices" class="choices"></div></div></section>
+
+<section id="writing" class="screen"><button class="back" onclick="show('childHome')">← My School</button><div class="card center"><span class="pill">Pre-Writing</span><h2>Trace the lines ✏️</h2><canvas id="pad" width="850" height="300" style="width:100%;border:3px dashed #cfd3e8;border-radius:18px;touch-action:none"></canvas><p class="muted">Draw over the dotted lines.</p><button class="primary" onclick="clearPad()">Clear</button></div></section>
+
+<section id="story" class="screen"><button class="back" onclick="show('childHome')">← My School</button><div class="card"><span class="pill">Story Time</span><h2>🌟 Lila Takes One Little Step</h2><p style="font-size:19px;line-height:1.6">Little Lila wanted to climb a tiny hill. It looked very big. Her friend said, “Take one little step.” Lila stepped forward, then another, then another. Soon she was at the top!</p><div class="notice"><b>Today’s lesson:</b> Small steps can help us do big things.</div><button class="primary" onclick="speakStory()" style="margin-top:15px">🔊 Read to me</button></div></section>
+
+<section id="games" class="screen"><button class="back" onclick="show('childHome')">← My School</button><div class="card center"><span class="pill">Memory</span><h2>Find the matching animals</h2><div id="memory" class="choices"></div><p id="gameMsg"></p></div></section>
+
+<section id="rewards" class="screen"><button class="back" onclick="show('childHome')">← My School</button><div class="card center"><div class="emoji">🏆</div><h2>My Little Zion Rewards</h2><div id="stars" style="font-size:45px">☆☆☆☆☆</div><p id="rewardText">Keep learning to earn stars!</p></div></section>
+
+<section id="parent" class="screen"><button class="back" onclick="show('childHome')">← Child Mode</button><div class="card"><span class="pill">Parent Dashboard</span><h1>Welcome, Parent 👩‍👧</h1><p><b>Child:</b> <span id="dashChild">—</span></p><p><b>Subscription:</b> <span id="subStatus">Active</span></p><p><b>Activities completed:</b> <span id="dashDone">0</span></p><div class="progress"><div id="dashBar" class="bar"></div></div><h2>Weekly learning</h2><div class="lesson"><h3>🔤 Language & Phonics</h3><p>Practise letter recognition and beginning sounds.</p></div><div class="lesson"><h3>🔢 Maths</h3><p>Counting and number recognition.</p></div><div class="lesson"><h3>✏️ Pre-Writing</h3><p>Fine-motor tracing activities.</p></div><div class="lesson"><h3>📚 Story & Comprehension</h3><p>Listen to a story and talk about what happened.</p></div><div class="notice"><b>Production note:</b> Real accounts, payment verification and subscription expiry must be connected to a secure backend before launch.</div></div></section>
+
+<div class="footer">Little Zion Homeschool • Ages 3–6 • Parent-managed learning</div>
+</main>
+</div>
+
+<script>
+const S={done:+localStorage.getItem('lz_done')||0,active:localStorage.getItem('lz_active')==='1',child:localStorage.getItem('lz_child')||'Learner'};
+function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+function createAccount(){const e=email.value.trim(),p=pw.value,c=child.value.trim(),a=age.value;if(!e||!p||!c||!a)return alert('Please complete the parent and child details.');localStorage.setItem('lz_email',e);localStorage.setItem('lz_child',c);S.child=c;show('payment')}
+function demoPay(){localStorage.setItem('lz_active','1');S.active=true;document.getElementById('childName').textContent=S.child;show('childHome');update()}
+function parentLogin(){if(!S.active)return show('signup');let x=prompt('Parent password (prototype): enter the password you created during registration.');if(x)show('parent')}
+function done(){S.done++;localStorage.setItem('lz_done',S.done);update()}
+function update(){document.getElementById('childName').textContent=S.child;document.getElementById('dashChild').textContent=S.child;document.getElementById('dashDone').textContent=S.done;document.getElementById('progressText').textContent=S.done+' activities completed';document.getElementById('bar').style.width=Math.min(100,S.done*10)+'%';document.getElementById('dashBar').style.width=Math.min(100,S.done*10)+'%';let n=Math.min(5,Math.floor(S.done/2));document.getElementById('stars').textContent='★★★★★'.slice(0,n)+'☆☆☆☆☆'.slice(0,5-n);document.getElementById('rewardText').textContent=n?'You earned '+n+' star'+(n>1?'s!':'!'):'Keep learning to earn stars!'}
+const sets=[['A',['🍎','🐱','🐶','⚽']],['B',['⚽','🍎','🐱','🐟']],['C',['🐱','🍌','🐶','⭐']],['D',['🐶','🐟','🍎','🚗']]];
+function abc(){let q=sets[Math.floor(Math.random()*sets.length)],letter=q[0];document.getElementById('letter').textContent=letter;document.getElementById('abcChoices').innerHTML=q[1].map((x,i)=>`<button class="choice" onclick="abcAns(${i===0},this)">${x}</button>`).join('')}
+function abcAns(ok,b){if(ok){b.classList.add('correct');done();setTimeout(abc,450)}else{b.classList.add('wrong');setTimeout(()=>b.classList.remove('wrong'),450)}}
+function math(){let n=2+Math.floor(Math.random()*7);document.getElementById('apples').textContent='🍎'.repeat(n);let a=[n];while(a.length<4){let x=Math.max(1,Math.min(9,n+Math.floor(Math.random()*5)-2));if(!a.includes(x))a.push(x)}a.sort(()=>Math.random()-.5);document.getElementById('mathChoices').innerHTML=a.map(x=>`<button class="choice" onclick="mathAns(${x===n},this)">${x}</button>`).join('')}
+function mathAns(ok,b){if(ok){b.classList.add('correct');done();setTimeout(math,450)}else{b.classList.add('wrong');setTimeout(()=>b.classList.remove('wrong'),450)}}
+function speak(){if('speechSynthesis'in window){let u=new SpeechSynthesisUtterance('A says apple. A. Apple.');u.rate=.8;speechSynthesis.speak(u)}}
+function speakStory(){if('speechSynthesis'in window){let u=new SpeechSynthesisUtterance('Little Lila wanted to climb a tiny hill. It looked very big. Her friend said, Take one little step. Lila stepped forward, then another, then another. Soon she was at the top. Small steps can help us do big things.');u.rate=.85;speechSynthesis.speak(u)}}
+function memory(){let a=['🐶','🐱','🐶','🐱'].sort(()=>Math.random()-.5);window.m={a,first:null};memory.innerHTML=a.map(x=>`<button class="choice" data-x="${x}" onclick="pick(this)">❓</button>`).join('')}
+function pick(b){if(b.dataset.open)return;b.dataset.open='1';b.textContent=b.dataset.x;if(!m.first){m.first=b;return}if(m.first.dataset.x===b.dataset.x){b.classList.add('correct');m.first.classList.add('correct');done();setTimeout(memory,600)}else{let f=m.first;setTimeout(()=>{f.textContent='❓';b.textContent='❓';delete f.dataset.open;delete b.dataset.open},600)}m.first=null}
+function padInit(){const c=document.getElementById('pad'),x=c.getContext('2d');let d=false;c.onpointerdown=e=>{d=true;x.beginPath();x.moveTo(e.offsetX,e.offsetY)};c.onpointerup=()=>d=false;c.onpointermove=e=>{if(!d)return;x.lineWidth=8;x.lineCap='round';x.lineTo(e.offsetX,e.offsetY);x.stroke()};x.setLineDash([14,14]);x.lineWidth=5;for(let y of [75,150,225]){x.beginPath();x.moveTo(40,y);x.lineTo(810,y);x.stroke()}}
+function clearPad(){let c=document.getElementById('pad');c.getContext('2d').clearRect(0,0,c.width,c.height);padInit()}
+abc();math();memory();padInit();update();
+</script>
+</body>
+</html>
